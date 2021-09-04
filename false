@@ -1,0 +1,7 @@
+      invoke  active_record
+      create    db/migrate/20210904132658_create_blogs.rb
+      create    app/models/blog.rb
+      invoke    rspec
+      create      spec/models/blog_spec.rb
+      invoke      factory_bot
+      create        spec/factories/blogs.rb
