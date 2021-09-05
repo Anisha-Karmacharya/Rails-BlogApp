@@ -1,0 +1,7 @@
+<h1><%= @blog.title %></h1>
+<h3><%= @blog.author %></h3>
+<%= @blog.content %>
+
+<a  href="/blogs/<%= @blog.id %>/edit">Edit</a>
+<br><br>
+<%= button_to "Delete", @blog, method: :delete, class: "btn btn-default" %>

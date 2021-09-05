@@ -59,3 +59,5 @@ gem 'rubocop', '~> 0.88.0', require: false
 
 gem 'rspec-rails', '~> 4.0.1'
 gem 'factory_bot_rails'
+
+gem 'bootstrap-datepicker-rails'

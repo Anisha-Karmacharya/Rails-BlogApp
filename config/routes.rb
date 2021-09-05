@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # get "/blogs/:id/edit", to: "blogs#edit"
   # put "/blogs/:id", to: "blogs#update" # usually a submitted form
   # delete "/blogs/:id", to: "blogs#destroy"
-  root "blogs#index"
+  root to:"blogs#index"
   resources :blogs
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
