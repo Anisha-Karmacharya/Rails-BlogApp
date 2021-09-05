@@ -22,16 +22,19 @@ class BlogsController < ApplicationController
     # code to create a new blog based on the parameters that
     # were submitted with the form (and are now available in the
     # params hash)
-    @blog = Blog.new params[:blog]
+    @blog = Blog.new(blog_params)
+
     if @blog.save
-      redirect_to blogs_path
+      redirect_to @blog
     else
-      render :action => 'new'
+      render 'new'
     end
   end
 
+
+
   def edit
-    # very simple code to find the blog we want and send the
+    # very simple code to fiand the blog we want and send the
     # user to the Edit view for it(edit.html.erb), which has a
     # form for editing the blog
     @blog = Blog.find params[:id]
@@ -42,11 +45,12 @@ class BlogsController < ApplicationController
     # actually update the attributes of that blog.  Once that's
     # done, redirect us to somewhere like the Show page for that
     # blog
-    @blog = Blog.find params[:id]
-    if @blog.update_attributes params[:blog]
-      redirect_to blogs_path
+    @blog = Blog.find(params[:id])
+
+    if @blog.update(blog_params)
+      redirect_to @blog
     else
-      render :action => :edit
+      render 'edit'
     end
   end
 
@@ -56,5 +60,9 @@ class BlogsController < ApplicationController
     @blog = Blog.find params[:id]
     @blog.destroy
     redirect_to blogs_path
+  end
+
+  def blog_params
+    params.require(:blog).permit(:title, :content, :posted_on, :image)
   end
 end

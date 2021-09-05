@@ -1,9 +1,23 @@
-<h1>Welcome to the Blog!</h1>
-<hr>
-<% @blogs.each do |blog| %>
-  <h4><%= link_to blog.title, blog_path(blog) %></a></h4>
-  <p><%= blog.content%></p>
-  <hr>
-<% end %>
-<%= link_to "Add New blog", new_blog_path, class: "btn btn-default" %>
+
+<div class="container">
+    <h1>Welcome to the Blog!</h1>
+     <% @blogs.each do |blog| %>
+        <div class="card mb-3 border-dark text-dark  mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h4 class="card-title"><%= link_to blog.title, blog_path(blog)%></h4>
+                        <p class="card-text"><%= blog.content%></p>
+                        <p class="card-text"><small class="text-muted"><%= blog.posted_on%></small></p>      
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <%= link_to "Add blog", new_blog_path, class: "btn btn-outline-dark" %>
+</div>
+
 
